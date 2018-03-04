@@ -1,21 +1,45 @@
-function forLoop(array){
-  for(let i=0; i<25; i++){
-    array[i] = (i===1 ? "I am 1 strange loop" : "I am ${i} strange loops");
+function makeArray() {
+  const array = [];
+  const t = Math.floor(Math.random() * 10);
+
+  for (let i = 0; i < t; i++) {
+    array.push("I am a strange loop.");
   }
-  return array;
+  return [array, t];
 }
 
-var parray =[];
-forLoop(parray);
-console.log(parray);
+function forLoop(array){
+  var array1 = array[0];
+  var t = array[1];
+  
+  for(let i=t; i<t+25; i++){
+    array1[i] = "I am " + (i+1) +" strange loop" + (i===0 ? "." : "s.");
+  }
+
+  for(var i=0; i<array1.length; i++){
+    console.log(array1[i]);
+  }
+
+  return array1;
+}
+
+var parray = makeArray();
+var karray = forLoop(parray);
+//console.log(karray);
+
+
 
 function whileLoop(n){
   while(n>0) {
-    console.log(n-- + " done");
+    console.log(n);
+    n-=1;
   }
+  return "done";
 }
 
-whileLoop(5);
+const n = Math.floor(Math.random() * 100)
+console.log(whileLoop(n));
+
 
 function maybeTrue(){
   return Math.random() >= 0.5;
